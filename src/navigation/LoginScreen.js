@@ -19,7 +19,7 @@ import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
-import {appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
+// import {appleAuth, AppleButton } from '@invertase/react-native-apple-authentication';
 
 import { NaverLogin, getProfile } from "@react-native-seoul/naver-login";
 
@@ -36,18 +36,18 @@ const win = Dimensions.get('window');
 
 import {NavigationService} from '../common';
 
-const iosKeys = {
-  kConsumerKey: "VC5CPfjRigclJV_TFACU",
-  kConsumerSecret: "f7tLFw0AHn",
-  kServiceAppName: "테스트앱(iOS)",
-  kServiceAppUrlScheme: "testapp" // only for iOS
-};
+// const iosKeys = {
+//   kConsumerKey: "VC5CPfjRigclJV_TFACU",
+//   kConsumerSecret: "f7tLFw0AHn",
+//   kServiceAppName: "테스트앱(iOS)",
+//   kServiceAppUrlScheme: "testapp" // only for iOS
+// };
 
-const androidKeys = {
-  kConsumerKey: "e6YM2iPojP1k7wzXtenx",
-  kConsumerSecret: "utgr1yME8d",
-  kServiceAppName: "펫타임"
-};
+// const androidKeys = {
+//   kConsumerKey: "e6YM2iPojP1k7wzXtenx",
+//   kConsumerSecret: "utgr1yME8d",
+//   kServiceAppName: "펫타임"
+// };
 
 
 const signInWithKakao = async () => {
@@ -92,26 +92,26 @@ const getUserProfile = async () => {
   console.log("profileResult", profileResult);
 };
 
-async function onAppleButtonPress() { 
-  // Start the sign-in request 
-  const appleAuthRequestResponse = await appleAuth.performRequest({ 
-    requestedOperation: appleAuth.Operation.LOGIN, 
-    requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME], 
-  }); 
+// async function onAppleButtonPress() { 
+//   // Start the sign-in request 
+//   const appleAuthRequestResponse = await appleAuth.performRequest({ 
+//     requestedOperation: appleAuth.Operation.LOGIN, 
+//     requestedScopes: [appleAuth.Scope.EMAIL, appleAuth.Scope.FULL_NAME], 
+//   }); 
   
-  // Ensure Apple returned a user identityToken 
-  if (!appleAuthRequestResponse.identityToken) 
-  { 
-    throw 'Apple Sign-In failed - no identify token returned'; 
-  } 
+//   // Ensure Apple returned a user identityToken 
+//   if (!appleAuthRequestResponse.identityToken) 
+//   { 
+//     throw 'Apple Sign-In failed - no identify token returned'; 
+//   } 
   
-  // Create a Firebase credential from the response 
-  const { identityToken, nonce } = appleAuthRequestResponse; 
-  const appleCredential = auth.AppleAuthProvider.credential(identityToken, nonce); 
+//   // Create a Firebase credential from the response 
+//   const { identityToken, nonce } = appleAuthRequestResponse; 
+//   const appleCredential = auth.AppleAuthProvider.credential(identityToken, nonce); 
   
-  // Sign the user in with the credential 
-  return auth().signInWithCredential(appleCredential); 
-}
+//   // Sign the user in with the credential 
+//   return auth().signInWithCredential(appleCredential); 
+// }
 
 
 async function onGoogleButtonPress() {
